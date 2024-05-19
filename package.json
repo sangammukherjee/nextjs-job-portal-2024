@@ -24,6 +24,7 @@
     "lucide-react": "^0.368.0",
     "mongoose": "^8.3.2",
     "next": "14.2.1",
+    "next-themes": "^0.3.0",
     "query-string": "^9.0.0",
     "react": "^18",
     "react-dom": "^18",

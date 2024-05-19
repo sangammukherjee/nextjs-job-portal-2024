@@ -72,7 +72,7 @@ function CandidateList({
           ? jobApplications.map((jobApplicantItem) => (
               <div className="bg-white shadow-lg w-full max-w-sm rounded-lg overflow-hidden mx-auto mt-4">
                 <div className="px-4 my-6 flex justify-between items-center">
-                  <h3 className="text-lg font-bold">
+                  <h3 className="text-lg font-bold dark:text-black">
                     {jobApplicantItem?.name}
                   </h3>
                   <Button
@@ -81,7 +81,7 @@ function CandidateList({
                         jobApplicantItem?.candidateUserID
                       )
                     }
-                    className=" flex h-11 items-center justify-center px-5"
+                    className="dark:bg-[#fffa27]  flex h-11 items-center justify-center px-5"
                   >
                     View Profile
                   </Button>
@@ -99,36 +99,36 @@ function CandidateList({
       >
         <DialogContent>
           <div>
-            <h1 className="text-2xl font-bold text-black">
+            <h1 className="text-2xl font-bold dark:text-white text-black">
               {currentCandidateDetails?.candidateInfo?.name},{" "}
               {currentCandidateDetails?.email}
             </h1>
-            <p className="text-xl font-medium text-black">
+            <p className="text-xl font-medium dark:text-white text-black">
               {currentCandidateDetails?.candidateInfo?.currentCompany}
             </p>
-            <p className="text-sm font-normal text-black">
+            <p className="text-sm font-normal dark:text-white text-black">
               {currentCandidateDetails?.candidateInfo?.currentJobLocation}
             </p>
-            <p>
+            <p className="dark:text-white">
               Total Experience:
               {currentCandidateDetails?.candidateInfo?.totalExperience} Years
             </p>
-            <p>
+            <p className="dark:text-white">
               Salary: {currentCandidateDetails?.candidateInfo?.currentSalary}{" "}
               LPA
             </p>
-            <p>
+            <p className="dark:text-white">
               Notice Period:{" "}
               {currentCandidateDetails?.candidateInfo?.noticePeriod} Days
             </p>
             <div className="flex items-center gap-4 mt-6">
-              <h1>Previous Companies</h1>
+              <h1 className="dark:text-white">Previous Companies</h1>
               <div className="flex flex-wrap items-center gap-4 mt-6">
                 {currentCandidateDetails?.candidateInfo?.previousCompanies
                   .split(",")
                   .map((skillItem) => (
-                    <div className="w-[100px] flex justify-center items-center h-[35px] bg-black rounded-[4px]">
-                      <h2 className="text-[13px] font-medium text-white">
+                    <div className="w-[100px] dark:bg-white flex justify-center items-center h-[35px] bg-black rounded-[4px]">
+                      <h2 className="text-[13px]  dark:text-black font-medium text-white">
                         {skillItem}
                       </h2>
                     </div>
@@ -139,8 +139,8 @@ function CandidateList({
               {currentCandidateDetails?.candidateInfo?.skills
                 .split(",")
                 .map((skillItem) => (
-                  <div className="w-[100px] flex justify-center items-center h-[35px] bg-black rounded-[4px]">
-                    <h2 className="text-[13px] font-medium text-white">
+                  <div className="w-[100px] dark:bg-white flex justify-center items-center h-[35px] bg-black rounded-[4px]">
+                    <h2 className="text-[13px] dark:text-black font-medium text-white">
                       {skillItem}
                     </h2>
                   </div>

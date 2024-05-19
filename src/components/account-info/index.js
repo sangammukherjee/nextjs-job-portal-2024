@@ -65,8 +65,8 @@ function AccountInfo({ profileInfo }) {
 
   return (
     <div className="mx-auto max-w-7xl">
-      <div className="flex items-baseline justify-between pb-6 border-b pt-24">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-950">
+      <div className="flex items-baseline dark:border-white justify-between pb-6 border-b pt-24">
+        <h1 className="text-4xl font-bold dark:text-white tracking-tight text-gray-950">
           Account Details
         </h1>
       </div>

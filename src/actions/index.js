@@ -2,6 +2,7 @@
 
 import connectToDB from "@/database";
 import Application from "@/models/application";
+import Feed from "@/models/feed";
 import Job from "@/models/job";
 import Profile from "@/models/profile";
 import { revalidatePath } from "next/cache";
@@ -189,12 +190,48 @@ export async function createStripePaymentAction(data) {
     payment_method_types: ["card"],
     line_items: data?.lineItems,
     mode: "subscription",
-    success_url: "http://localhost:3000/membership" + "?status=success",
-    cancel_url: "http://localhost:3000/membership" + "?status=cancel",
+    success_url: `${process.env.URL}/membership` + "?status=success",
+    cancel_url: `${process.env.URL}/membership` + "?status=cancel",
   });
 
   return {
     success: true,
     id: session?.id,
   };
+}
+
+//create post action
+export async function createFeedPostAction(data, pathToRevalidate) {
+  await connectToDB();
+  await Feed.create(data);
+  revalidatePath(pathToRevalidate);
+}
+
+//fetch all posts action
+export async function fetchAllFeedPostsAction() {
+  await connectToDB();
+  const result = await Feed.find({});
+
+  return JSON.parse(JSON.stringify(result));
+}
+
+//update post action
+export async function updateFeedPostAction(data, pathToRevalidate) {
+  await connectToDB();
+  const { userId, userName, message, image, likes, _id } = data;
+  await Feed.findOneAndUpdate(
+    {
+      _id: _id,
+    },
+    {
+      userId,
+      userName,
+      image,
+      message,
+      likes,
+    },
+    { new: true }
+  );
+
+  revalidatePath(pathToRevalidate);
 }
